@@ -72,12 +72,16 @@ updateMovie = async (req, res) => {
 deleteMovie = async (req, res) => {
     
     try {
-        
-        await Movie.deleteOne({ _id: req.params.id });
-        return res.status(204);
+        await Movie.deleteOne({ _id: req.params.id }).then(function(){
+            console.log("Movie deleted");
+            return res.status(204); // Success
+        }).catch(function(error){
+            console.log(error); // Failure
+        });
+      
     } catch {
         return res
-        .status(404)
+        .status(500)
         .json({ success: false, error: `Movie not found` });
     } 
 
