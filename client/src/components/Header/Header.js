@@ -21,6 +21,9 @@ const Header = () => {
           <LinkContainer to="/movie/list">
             <Nav.Link>List Movies</Nav.Link>
           </LinkContainer>
+          <LinkContainer to="/movie/update/:id">
+            <Nav.Link>Update Movie</Nav.Link>
+          </LinkContainer>
           <LinkContainer to="/movie/create">
             <Nav.Link>Create Movie</Nav.Link>
           </LinkContainer>
