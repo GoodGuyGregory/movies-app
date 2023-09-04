@@ -1,21 +1,26 @@
 import React from 'react';
-import { useState, useEffect } from "react";
+import { useMemo,useState, useEffect } from "react";
 import moviesApi from '../../api/moviesApi';
+import MovieTable from '../MovieTable/MovieTable';
 import './MoviesList.css';
 
 const MoviesList = () => {
 
-    const [movies, setMovies] = useState([]);
+    const [movies, setMovies] = useState({});
 
     useEffect(() => {
         (async () => {
-            const foundRes = await moviesApi.getAllMovies();
+            let foundMovies = await moviesApi.getAllMovies();
+            setMovies(foundMovies);
         })();
     }, []);
 
     return (
         <>
-            <h1>This is the Movie List Page...</h1>
+        <div class="movies">
+            <MovieTable movies={movies}/>
+        </div>
+
         </>
     );
 
