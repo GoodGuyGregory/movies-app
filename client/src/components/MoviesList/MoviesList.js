@@ -6,11 +6,12 @@ import './MoviesList.css';
 
 const MoviesList = () => {
 
-    const [movies, setMovies] = useState({Movies: []});
+    const [movies, setMovies] = useState();
 
     useEffect(() => {
-            moviesApi.getAllMovies().then( movies => {
-            setMovies(movies);
+            moviesApi.getAllMovies().then( response => {
+            setMovies(response.data);
+            console.log(response.data);
         })
     }, []);
 
