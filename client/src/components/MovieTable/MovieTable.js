@@ -15,7 +15,7 @@ const columns = [{
     }   
     ,{  
     Header: 'Time',  
-    accessor: 'time' ,
+    accessor: 'time',
     }
     ,{  
     Header: 'Rating',  

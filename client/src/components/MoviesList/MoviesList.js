@@ -11,7 +11,7 @@ const MoviesList = () => {
     useEffect(() => {
             moviesApi.getAllMovies().then( response => {
             setMovies(response.data);
-            console.log(response.data);
+            // console.log(response.data);
         })
     }, []);
 
